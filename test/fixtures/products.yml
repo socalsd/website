@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  manufacturer: 
+  category: 
+  name: MyString
+  description: MyString
+  size: MyString
+  picture1: MyString
+  picture2: MyString
+  type: 
+
+two:
+  manufacturer: 
+  category: 
+  name: MyString
+  description: MyString
+  size: MyString
+  picture1: MyString
+  picture2: MyString
+  type: 

@@ -1,0 +1,35 @@
+<h1>Listing salons</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip</th>
+    <th>Phone</th>
+    <th>Url</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @salons.each do |salon| %>
+  <tr>
+    <td><%= salon.name %></td>
+    <td><%= salon.address %></td>
+    <td><%= salon.city %></td>
+    <td><%= salon.state %></td>
+    <td><%= salon.zip %></td>
+    <td><%= salon.phone %></td>
+    <td><%= salon.url %></td>
+    <td><%= link_to 'Show', salon %></td>
+    <td><%= link_to 'Edit', edit_salon_path(salon) %></td>
+    <td><%= link_to 'Destroy', salon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Salon', new_salon_path %>

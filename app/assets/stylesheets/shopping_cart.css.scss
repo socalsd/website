@@ -1,0 +1,15 @@
+// Place all the styles related to the ShoppingCart controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+table.invoice td.money {
+    width: 8em;
+}
+
+table.invoice tr.even {
+    background-color: green;
+}
+
+table.invoice tr.odd {
+    background-color: gray;
+}

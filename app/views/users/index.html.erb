@@ -1,0 +1,15 @@
+<h1>Users</h1>
+<table>
+<tr><th>Last</th><th>First</th><th>Status</th><th>Account Manager</th><th>Salon</th><th>Phone</th><th>e-mail</th></tr>
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.lastname %></td>
+    <td><%= user.firstname %></td>
+    <td><%= user.statusName %></td>
+    <td><%= user.account_manager && user.account_manager.firstname %></td>
+    <td><%= user.salon && link_to(user.salon.name, salon_path(user.salon)) %>
+    <td><%= user.phone %></td>
+    <td><%= mail_to user.email %></td>
+  </tr>
+<% end %>
+</table>

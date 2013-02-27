@@ -1,0 +1,35 @@
+<h1>Checkout</h1>
+
+<%= form_tag(:controller => "shopping_cart", :action => "update") do %>
+  <table class="invoice">
+  <tr><th>Remove</th><th>Quantity</th><th>Product</th><th>Price</th><th>Total<th></tr>
+  <% rowstyle="even" %>
+  <% subtotal=0 %>
+  <% @cart.line_items.each do |item| %>
+    <%= tag(:tr, :class => rowstyle) %>
+      <td><%= check_box_tag "delete[#{item.id}]" %></td>
+      <td class="number"><%= select_tag "quantity[#{item.id}]", options_for_select([1,2,3,4,5,6], :selected => item.quantity) %></td>
+      <td><%= item.product.name %></td>
+      <td class="money"><%= number_to_currency(item.product.price) %></td>
+      <td class="money"><%= number_to_currency(item.quantity*item.product.price) %></td>
+    </tr>
+    <% rowstyle = rowstyle == "even" ? "odd" : "even" %>
+    <% subtotal += item.quantity*item.product.price %>
+  <% end %>
+  <tr>
+    <td>subtotal</td>
+    <td colspan=3></td><td class="subtotal; money"><%= number_to_currency(subtotal) %></td>
+  </tr>
+  <tr>
+    <td>tax</td>
+    <td colspan=3></td><td class="money"><%= number_to_currency(subtotal*0.0775) %></td>
+  </tr>
+  <tr>
+    <td>total</td>
+    <td colspan=3></td><td class="subtotal; money"><%= number_to_currency(1.0775*subtotal) %></td>
+  </tr>
+  </table>
+  <%= submit_tag("Update") %>
+<% end %>
+
+<%= button_to "Place Order", :controller => :shopping_cart, :action => :finalize %>

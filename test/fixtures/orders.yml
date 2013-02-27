@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user: 
+  placed_at: 2013-02-22 14:51:41
+  delivered_at: 2013-02-22 14:51:41
+  payment_at: 2013-02-22 14:51:41
+  account_manager_id: 1
+  payment_type: MyString
+  submitted: false
+
+two:
+  user: 
+  placed_at: 2013-02-22 14:51:41
+  delivered_at: 2013-02-22 14:51:41
+  payment_at: 2013-02-22 14:51:41
+  account_manager_id: 1
+  payment_type: MyString
+  submitted: false

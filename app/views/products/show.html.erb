@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Manufacturer:</b>
+  <%= @product.manufacturer.name %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @product.category.name %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @product.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @product.description %>
+</p>
+
+<p>
+  <b>Size:</b>
+  <%= @product.size %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= number_to_currency(@product.price) %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @product.type %>
+</p>
+
+<p>
+  <b>Photo:</b>
+  <%= image_tag @product.photo.url, :class => "product_photo" %>
+</p>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

@@ -1,4 +1,36 @@
 Socalsd::Application.routes.draw do
+  get "line_item/create"
+
+  get "line_item/destroy"
+
+  resources :line_tems
+  resources :orders do
+    resources :line_items
+  end
+  resources :salons
+  resources :products
+  resources :lines
+  resources :manufacturers
+  resources :categories do
+    resources :products
+  end
+
+  get "static/main"
+
+  #get "sessions/create"
+  #get "sessions/destroy"
+  resources :sessions
+  match 'logout' => 'sessions#destroy'
+
+  get "sign_up" => "users#new", :as => "sign_up"
+  root :to => "static#main"
+  resources :users
+  
+  match 'cart/checkout' => 'shopping_cart#show'
+  match 'cart/update' => 'shopping_cart#update'
+  match 'cart/finalize' => 'shopping_cart#finalize'
+  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
