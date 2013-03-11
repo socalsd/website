@@ -16,6 +16,7 @@ Socalsd::Application.routes.draw do
   end
 
   get "static/main"
+  get "static/test"
 
   #get "sessions/create"
   #get "sessions/destroy"

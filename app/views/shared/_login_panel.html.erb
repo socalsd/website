@@ -1,0 +1,60 @@
+<div class="login_register_stuff hide"><!-- Login/Register Modal forms - hidded by default to be opened through modal -->
+		<div id="login_panel">
+			<div class="inner-container login-panel">
+			  
+				<h3 class="m_title">SIGN IN YOUR ACCOUNT TO HAVE ACCESS TO DIFFERENT FEATURES</h3>
+					
+				<form id="login_form" name="login_form" method="post" class="zn_form_login" action="http://hogash-demo.com/kallyas_wp/wp-login.php">
+				
+
+						<a href="#" class="create_account" onClick="ppOpen('#register_panel', '280');">CREATE ACCOUNT</a>
+
+					
+					<input type="text" id="username" name="log" class="inputbox" placeholder="Username">
+					<input type="password" id="password" name="pwd" class="inputbox" placeholder="Password">
+										<label class="zn_remember"><input type="checkbox" name="rememberme" id="rememberme" value="forever"> Remember Me</label>
+					<input type="submit" id="login" name="submit_button" class="zn_sub_button" value="LOG IN">
+					<input type="hidden" value="/kallyas_wp/index.php" class="zn_login_redirect" name="submit">
+					<div class="links"><a href="#" onClick="ppOpen('#forgot_panel', '350');">FORGOT YOUR PASSWORD?</a></div>
+				</form>
+
+			</div>
+		</div><!-- end login panel -->
+
+
+			<div id="register_panel">
+				<div class="inner-container register-panel">
+					<h3 class="m_title">CREATE ACCOUNT</h3>
+					<form id="register_form" name="login_form" method="post" class="zn_form_login" action="http://hogash-demo.com/kallyas_wp/wp-login.php?action=register">
+						<p>
+							<input type="text" id="reg-username" name="user_login" class="inputbox" placeholder="Username">
+						</p>
+						<p>
+							<input type="text" id="reg-email" name="user_email" class="inputbox" placeholder="Your email">
+						</p>
+						<p>
+							<input type="submit" id="signup" name="submit" class="zn_sub_button" value="CREATE MY ACCOUNT">
+						</p>
+						<div class="links"><a href="#" onClick="ppOpen('#login_panel', '800');">ALREADY HAVE AN ACCOUNT?</a></div>
+					</form>
+					
+				</div>
+			</div><!-- end register panel -->
+
+		
+		<div id="forgot_panel">
+			<div class="inner-container forgot-panel">
+				<h3 class="m_title">FORGOT YOUR DETAILS?</h3>
+				<form id="forgot_form" name="login_form" method="post" class="zn_form_login" action="http://hogash-demo.com/kallyas_wp/wp-login.php?action=lostpassword">
+					<p>
+						<input type="text" id="forgot-email" name="user_login" class="inputbox" placeholder="Username or E-mail">
+					</p>
+					<p>
+						<input type="submit" id="recover" name="submit" class="zn_sub_button" value="SEND MY DETAILS!">
+					</p>
+					<div class="links"><a href="#" onClick="ppOpen('#login_panel', '800');">AAH, WAIT, I REMEMBER NOW!</a></div>
+				</form>
+				
+			</div>
+		</div><!-- end register panel -->
+	</div><!-- end login register stuff -->

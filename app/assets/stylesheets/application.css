@@ -5,11 +5,17 @@
  * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
  * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
  *
+ * Note: "this directory" is app/assets/stylesheets
+ * !Did not read vendor/assets/stylesheets!  I had to add an explicit require_tree ../../../vendor/assests/stylesheets entry to the manifest!
+ *
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
  *= require_tree .
+ *= require_tree ../../../vendor/assets/kallyas/stylesheets
+ *= require_tree ../../../vendor/assets/superfish_responsive
+ *= require_tree ../../../vendor/assets/circular_content_carousel
  */
 
  td.money {
