@@ -1,58 +1,4 @@
 (function($) {
-	change();
-	$(window).resize(function() {
-		change();
-	});
-	function change()
-	{
-		var maskHeight = $(document).height();
-		var maskWidth = $(window).width();
-		var wid, lef, last;
-//		alert((maskWidth-768)/2+768);
-		if( maskWidth<=768)
-			wid=768;
-		else if (maskWidth>1572)
-			wid=1170;
-		else
-			wid=(maskWidth-768)/2+768;
-		$('.ca-container').css('width',wid);
-		lef=Math.ceil(wid/3);
-		$('.ca-item').css('width',lef-4);
-		
-		last=$('.ca-item').length+1;
-		for (i=1;i<last;i++)
-		{
-			if($('.ca-item-'+i).length)
-			{
-				if (parseInt($('.ca-item-'+i).css('left'),10)==0)
-					break;
-			}
-		}
-		if(i!=last)
-		{
-			var factor;
-			if (parseInt($('.ca-item-' + i).find('div.ca-content-wrapper').css('width'),10)!=0)
-			{
-				$('.ca-item-' + i).find('div.ca-content-wrapper').css('left',lef+'px');
-				$('.ca-item-' + i).find('div.ca-content-wrapper').css('width',(lef*2)+'px');
-				$('.ca-item-' + i).find('div.ca-content-wrapper').find('div.ca-content').css('width',(lef*2-20)+'px');
-			}
-			
-			if ($('.ca-item-' + i).find('div.ca-content-wrapper').css('width')=='0px')
-				factor=1;
-			else
-				factor=3;
-			for (j=1;j<last;j++)
-			{
-				if ($('.ca-item-'+j).length)
-				{
-					var k;
-					if(j<i) k=j-i+(last-1); else k=j-i;
-					$('.ca-item-'+j).css('left',lef*k*factor);
-				}
-			}
-		}
-	}
 	var	aux		= {
 			// navigates left / right
 			navigate	: function( dir, $el, $wrapper, opts, cache ) {
@@ -68,74 +14,30 @@
 				}
 				
 				// clone the elements on the right / left and append / prepend them according to dir and scroll
-				cache.itemW = Math.ceil(parseInt($('.ca-container').css('width'),10) / 3);
 				if( dir === 1 ) {
-/*					$wrapper.find('div.ca-item:lt(' + scroll + ')').each(function(i) {
+					$wrapper.find('div.ca-item:lt(' + scroll + ')').each(function(i) {
 						$(this).clone(true).css( 'left', ( cache.totalItems - idxClicked + i ) * cache.itemW * factor + 'px' ).appendTo( $wrapper );
-					}); */
-/*					alert(scroll+','+idxClicked+','+factor);
-					for (i=0;i<8;i++)
-						$wrapper.find('div.ca-item'+i).css( 'left', ( cache.totalItems - idxClicked + i ) * cache.itemW * factor + 'px' ); */
-					var last=$('.ca-item').length+1;
-					for (i=1;i<last;i++)
-					{
-						if($('.ca-item-'+i).length)
-						{
-							if (parseInt($('.ca-item-'+i).css('left'),10)==0)
-								break;
-						}
-					}
-					i=i%(last-1);
-					for (j=1;j<last;j++)
-					{
-						if ($('.ca-item-'+j).length)
-						{
-							var k;
-							if(j<i) k=j-i+(last-1); else k=j-i;
-							$('.ca-item-'+j).css('left',cache.itemW*k*factor);
-						}
-					}
+					});
 				}
 				else {
-/*					var $first	= $wrapper.children().eq(0);
+					var $first	= $wrapper.children().eq(0);
 					
 					$wrapper.find('div.ca-item:gt(' + ( cache.totalItems  - 1 - scroll ) + ')').each(function(i) {
 						// insert before $first so they stay in the right order
 						$(this).clone(true).css( 'left', - ( scroll - i + idxClicked ) * cache.itemW * factor + 'px' ).insertBefore( $first );
-					}); */
-					var last=$('.ca-item').length+1;
-					for (i=1;i<last;i++)
-					{
-						if($('.ca-item-'+i).length)
-						{
-							if (parseInt($('.ca-item-'+i).css('left'),10)==0)
-								break;
-						}
-					}
-					i=(i+1)%(last-1);
-					if (i==0) i=(last-1);
-					for (j=1;j<last;j++)
-					{
-						if ($('.ca-item-'+j).length)
-						{
-							var k;
-							if (j<=i) k=j-i+1; else k=j-i+1-(last-1);
-							$('.ca-item-'+j).css('left',cache.itemW*k*factor);
-						}
-					}
+					});
 				}
 				
 				// animate the left of each item
 				// the calculations are dependent on dir and on the cache.expanded value
 				$wrapper.find('div.ca-item').each(function(i) {
 					var $item	= $(this);
-					cache.itemW = Math.ceil(parseInt($('.ca-container').css('width'),10) / 3);
 					$item.stop().animate({
 						left	:  ( dir === 1 ) ? '-=' + ( cache.itemW * factor * scroll ) + 'px' : '+=' + ( cache.itemW * factor * scroll ) + 'px'
 					}, opts.sliderSpeed, opts.sliderEasing, function() {
 						if( ( dir === 1 && $item.position().left < - idxClicked * cache.itemW * factor ) || ( dir === -1 && $item.position().left > ( ( cache.totalItems - 1 - idxClicked ) * cache.itemW * factor ) ) ) {
 							// remove the item that was cloned
-//							$item.remove();
+							$item.remove();
 						}						
 						cache.isAnimating	= false;
 					});
@@ -147,7 +49,6 @@
 				cache.idxClicked	= $item.index();
 				// the item's position (1, 2, or 3) on the viewport (the visible items) 
 				cache.winpos		= aux.getWinPos( $item.position().left, cache );
-				cache.itemW = Math.ceil(parseInt($('.ca-container').css('width'),10) / 3);
 				$wrapper.find('div.ca-item').not( $item ).hide();
 				$item.find('div.ca-content-wrapper').css( 'left', cache.itemW + 'px' ).stop().animate({
 					width	: cache.itemW * 2 + 'px',
@@ -172,7 +73,7 @@
 				$wrapper.find('div.ca-item').each(function(i) {
 					var $item	= $(this),
 						idx		= $item.index();
-					cache.itemW = Math.ceil(parseInt($('.ca-container').css('width'),10) / 3);
+					
 					if( idx !== openedIdx ) {
 						$item.css( 'left', - ( openedIdx - idx ) * ( cache.itemW * 3 ) + 'px' ).show().find('div.ca-content-wrapper').css({
 							left	: cache.itemW + 'px',
@@ -192,8 +93,7 @@
 			// the current one is animated
 			closeItems	: function( $wrapper, $openedItem, opts, cache ) {
 				var openedIdx	= $openedItem.index();
-				var last;
-				cache.itemW = Math.ceil(parseInt($('.ca-container').css('width'),10) / 3);
+				
 				$openedItem.find('div.ca-content-wrapper').stop().animate({
 					width	: '0px'
 				}, opts.itemSpeed, opts.itemEasing)
@@ -208,6 +108,7 @@
 				
 				// show more link
 				aux.toggleMore( $openedItem, true );
+				
 				$wrapper.find('div.ca-item').each(function(i) {
 					var $item	= $(this),
 						idx		= $item.index();
@@ -224,28 +125,6 @@
 						aux.toggleMore( $item, true );
 					}
 				});
-				last=$('.ca-item').length+1;
-				for (i=1;i<last;i++)
-				{
-					if($('.ca-item-'+i).length)
-					{
-						if (parseInt($('.ca-item-'+i).css('left'),10)==0)
-							break;
-					}
-				}
-				if(i!=last)
-				{
-					for (j=1;j<last;j++)
-					{
-						if ($('.ca-item-'+j).length)
-						{
-							var k;
-							if(j<i) k=j-i+(last-1); else k=j-i;
-							$('.ca-item-'+j).css('left',cache.itemW*k);
-							$('.ca-item-'+j).css('display','block');
-						}
-					}
-				}
 			},
 			// gets the item's position (1, 2, or 3) on the viewport (the visible items)
 			// val is the left of the item
@@ -283,14 +162,13 @@
 							cache			= {};
 						
 						// save the with of one item	
-//						cache.itemW			= $items.width();
-						cache.itemW = Math.ceil(parseInt($('.ca-container').css('width'),10) / 3);
+						cache.itemW			= $items.width();
 						// save the number of total items
 						cache.totalItems	= $items.length;
 						
 						// add navigation buttons
 						if( cache.totalItems > 3 )	
-							$el.prepend('<div class="ca-nav"><span class="ca-nav-prev"><span class="icon-chevron-left icon-white"></span></span><span class="ca-nav-next"><span class="icon-chevron-right icon-white"></span></span></div>')	
+							$el.prepend('<div class="ca-nav"><span class="ca-nav-prev">Previous</span><span class="ca-nav-next">Next</span></div>')	
 						
 						// control the scroll value
 						if( settings.scroll < 1 )
@@ -319,7 +197,6 @@
 							cache.isAnimating	= true;
 							$(this).hide();
 							var $item	= $(this).closest('div.ca-item');
-							//$item.addClass('opened');
 							aux.openItem( $wrapper, $item, settings, cache );
 							return false;
 						});
@@ -329,7 +206,6 @@
 							if( cache.isAnimating ) return false;
 							cache.isAnimating	= true;
 							var $item	= $(this).closest('div.ca-item');
-							//$item.removeClass('opened');
 							aux.closeItems( $wrapper, $item, settings, cache );
 							return false;
 						});
@@ -363,36 +239,6 @@
 							return false;
 						});
 						
-						$el.swipe({
-							right: function() {
-								if( cache.isAnimating ) return false;
-								cache.isAnimating	= true;
-								aux.navigate( -1, $el, $wrapper, settings, cache );
-								//alert( "You swiped left!" );
-							},
-							left: function() {
-								if( cache.isAnimating ) return false;
-								cache.isAnimating	= true;
-								aux.navigate( 1, $el, $wrapper, settings, cache ); 
-								//alert( "You swiped right!" );
-							},
-							threshold: {
-								x: 100,
-								y: 100
-							}
-						});
-						$(document.documentElement).keyup(function (event) {
-							if (event.keyCode == 37) {
-								if( cache.isAnimating ) return false;
-								cache.isAnimating	= true;
-								aux.navigate( -1, $el, $wrapper, settings, cache );
-							} else if (event.keyCode == 39) {
-								if( cache.isAnimating ) return false;
-								cache.isAnimating	= true;
-								aux.navigate( 1, $el, $wrapper, settings, cache ); 
-							}
-						});
-							
 					});
 				}
 			}

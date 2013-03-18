@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require_tree .
 //= require_tree ../../../vendor/assets/superfish_responsive
-//= require ../../../vendor/assets/circular_content_carousel/javascripts/jquery.swipe.js
+//= require ../../../vendor/assets/circular_content_carousel/javascripts/jquery.easing.1.3.js
 //= require ../../../vendor/assets/circular_content_carousel/javascripts/jquery.mousewheel.js
 //= require ../../../vendor/assets/circular_content_carousel/javascripts/jquery.contentcarousel.js
 
@@ -42,9 +42,5 @@
         });
         
         $('#ca-container').contentcarousel();
-        alert("foobar!");
-        /*
-        
-        */
     });
 })(jQuery);
