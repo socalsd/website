@@ -1,0 +1,33 @@
+<li>
+  <div class="product-list-item">
+    <span class="hover"></span>
+    <div class="zn_badge_container">
+      <% if !product.get_product_tag.nil? %>
+        <span class="zonsale"><%= product.get_product_tag %></span>
+      <% end %>
+    </div>
+    <div class="image">
+      <a href="#">
+        <%= image_tag product.photo.url, :class => "product_photo" %>
+      </a>
+    </div>
+    <div class="details fixclear">
+      <h3>
+        <a href="#"> <%= product.name || (product.line && product.line.name) %> </a>
+      </h3>
+      <p>
+        <%= product.description || (product.line && product.line.description) %>
+      </p>
+    
+      <div class="actions">
+        <%= link_to "ADD TO CART", product_line_items_path(product), :remote => true, :method => "post", :class => "add_to_cart_button product_type_simple", :'data-product_id' => product.id %>
+      </div>
+      <div class="price">
+        <span><%= number_to_currency(product.price) %></span>
+        <% if product.onsale %>
+          <small> <%= number_to_currency(product.old_price) %></small>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</li>

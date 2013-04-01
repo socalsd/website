@@ -2,7 +2,7 @@
         <header id="header" class="style2">
             <div class="container">
                 <!-- logo -->
-                <h3 id="logo"><a href="http://hogash-demo.com/kallyas_wp"><img src="/assets/logo.gif" alt="Just another WordPress site" /></a></h3>                <ul class="topnav navRight">
+                <h3 id="logo"><a href="http://hogash-demo.com/kallyas_wp"><img src="/assets/kallyas_logo.png" alt="Just another WordPress site" /></a></h3>                <ul class="topnav navRight">
 									<li><a href="#" id="open_sliding_panel">
 						<span class="icon-remove-circle icon-white"></span> SUPPORT					</a>
 				</li>
@@ -13,8 +13,8 @@
 						<a id="mycartbtn" href="http://hogash-demo.com/kallyas_wp/cart/" title="View your shopping cart">
 							MY CART						</a>
 						<div class="pPanel">
-							<div class="inner">	<span class="cart_details">0 items, Total of <span class="amount">&#36;0</span> <a href="http://hogash-demo.com/kallyas_wp/cart/" title="View your shopping cart" class="checkout">Checkout <span class="icon-chevron-right"></span></a>
-								</span>
+							<div class="inner">
+							  <%= render :partial => "shared/cart_details", :locals => {:cart => current_user && current_user.cart} %>
 							</div>
 						</div>
 					</li>

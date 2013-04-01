@@ -1,16 +1,19 @@
 Socalsd::Application.routes.draw do
-  get "line_item/create"
+  #get "line_item/create"
 
-  get "line_item/destroy"
+  #get "line_item/destroy"
 
-  resources :line_tems
+  resources :line_items, :controller => "line_item"
   resources :orders do
-    resources :line_items
+    resources :line_items, :controller => "line_item"
   end
   resources :salons
-  resources :products
+  resources :products do
+    resources :line_items, :controller => "line_item"
+  end
   resources :lines
   resources :manufacturers
+  match 'categories/:category_id/products' => "products#category_index"
   resources :categories do
     resources :products
   end

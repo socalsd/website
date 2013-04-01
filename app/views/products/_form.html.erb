@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :manufacturer_id %><br />
-    <%= f.select :manufacturer_id, options_for_select(Manufacturer.find(:all).map {|m| [m.name, m.id]}) %>
+    <%= f.select :manufacturer_id, options_for_select(Manufacturer.find(:all).map {|m| [m.name, m.id]}, @product.manufacturer_id) %>
   </div>
   <div class="field">
     <%= f.label :category_id %><br />
-    <%= f.select :category_id, options_for_select(Category.find(:all).map {|c| [c.name, c.id]}) %>
+    <%= f.select :category_id, options_for_select(Category.find(:all).map {|c| [c.name, c.id]}, @product.category_id) %>
   </div>
   <div class="field">
     <%= f.label :name %><br />

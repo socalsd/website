@@ -1,4 +1,5 @@
 class ShoppingCartController < ApplicationController
+  layout "simple"
   before_filter :require_user, :find_cart
   
   def show

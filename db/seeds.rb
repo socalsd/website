@@ -205,7 +205,7 @@ Product.create(name: 'Post-Color Shampoo', size: '1 L', manufacturer_id: bbCOS.i
 Product.create(name: 'Post-Color Conditioner', size: '1 L', manufacturer_id: bbCOS.id, category_id: shampoos.id, :price => 19.95);
 Product.create(name: 'Hydrating Shampoo', size: '300 ml', manufacturer_id: bbCOS.id, category_id: shampoos.id, :price => 10.95);
 Product.create(name: 'Hydrating Shampoo', size: '1 L', manufacturer_id: bbCOS.id, category_id: shampoos.id, :price => 19.95);
-Product.create(name: 'Elixir Shampoo', size: '300 ml', manufacturer_id: bbCOS.id, category_id: shampoos.id, :price => 10.95);
+Product.create(name: 'Elixir Shampoo', size: '300 ml', manufacturer_id: bbCOS.id, category_id: shampoos.id, :price => 10.95, :onsale => true, :old_price => 11.95);
 Product.create(name: 'Elixir Shampoo', size: '1 L', manufacturer_id: bbCOS.id, category_id: shampoos.id, :price => 19.95);
 Product.create(name: 'Nutritive Shampoo', size: '300 ml', manufacturer_id: bbCOS.id, category_id: shampoos.id, :price => 11.95);
 Product.create(name: 'Nutritive Shampoo', size: '1 L', manufacturer_id: bbCOS.id, category_id: shampoos.id, :price => 20.95);

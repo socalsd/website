@@ -1,0 +1,29 @@
+<section id="content">
+  <div class="container">
+    <div class="row ">
+      <div class="span12">
+        <div class="shop-latest">
+          <div class="tabbable">
+            <ul class="nav fixclear">
+              <li class="active"><a href="#tabpan1" data-toggle="tab">LATEST PRODUCTS</a></li>
+              <li class=""><a href="#tabpan2" data-toggle="tab">BEST SELLING PRODUCTS</a></li>
+            </ul>
+          <div class="tab-content">
+            <div class="tab-pane active" id="tabpan1">
+              <div class="shop-latest-carousel">
+                <ul id="latest_products">
+                  <% @products.each do |product| %>
+                    <%= render "shared/product_list_item", :product => product %>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
