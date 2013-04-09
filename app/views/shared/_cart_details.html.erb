@@ -1,6 +1,6 @@
 <span class="cart_details">
   <%= (cart && cart.totalItems) || 0 %> items, Total of <%= number_to_currency((cart && cart.subtotal) || 0) %>
-  <a class="checkout" title="View your shopping cart" hef="#">
+  <a class="checkout" title="View your shopping cart" href=<%= "#{cart_checkout_path}" %> >
     Checkout
     <span class="icon-chevron-right"></span>
   </a>

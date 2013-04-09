@@ -1,6 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
+  before_filter do
+    @breadcrumbs = [["Home", root_path]]
+    @header_title = "Header Title"
+  end
+  
   #protected
   
   def current_user

@@ -7,9 +7,10 @@
 
 <head>
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
-  <title>Socalsd</title>
+  <title>Socalsd!</title>
   <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <script src="http://twitterjs.googlecode.com/svn/trunk/src/twitter.min.js"></script>
   <script src="http://twitterjs.googlecode.com/svn/trunk/src/twitter.min.js"></script>
   <script id="twitter-wjs" src="http://platform.twitter.com/widgets.js"></script>
   <script src="http://remy.github.com/twitterlib/twitterlib.js"></script>
@@ -17,14 +18,17 @@
 </head>
 
 <body>
-  <!-- %= render "shared/options_panel" % -->
-  <%= render "shared/fb_root" %>
-  <%= render "shared/sliding_panel" %>
+  <!-- %= render "shared/fb_root" % -->
+  <!-- %= render "shared/sliding_panel" % -->
   <%= render "shared/login_panel" %>
   <div id="page_wrapper">
     <%= render "shared/header" %>
     <%= render "shared/page_header" %>
-    <%= yield %>
+    <section id="content">
+      <div class="container">
+        <%= yield %>
+      </div>
+    </section>
     <%= render "shared/footer" %>
   </div> <!-- end #page_wrapper>
 </body>

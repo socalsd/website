@@ -2,21 +2,13 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    # @products = Product.all
-    if (params[:category_id])
-      @products = Product.where(:category_id => 4).page(params[:page] || 1)
-    else
-      @products = Product.page(params[:page] || 1)
-    end
+    # before_filter for :category_id
+    @products = Product.where(:category_id => params[:category_id])
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @products }
     end
-  end
-  
-  def category_index
-    @products = Product.where(:category_id => params[:category_id])
   end
 
   # GET /products/1

@@ -9,12 +9,21 @@
 			<div class="container">
 				<div class="row">
 					<div class="span6">
-					
-						<ul xmlns:v="http://rdf.data-vocabulary.org/#" class="breadcrumbs fixclear"><li typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="http://hogash-demo.com/kallyas_wp">Home</a></li><li typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="http://hogash-demo.com/kallyas_wp/pages-2/">Pages</a></li><li>Historic page</li></ul><span id="current-date">Thursday Feb 28, 2013</span>						
+						<ul xmlns:v="http://rdf.data-vocabulary.org/#" class="breadcrumbs fixclear">
+						  <% @breadcrumbs.each do |crumb| %>
+						    <li typeof="v:Breadcrumb">
+						      <%= link_to_if crumb[1], crumb[0], crumb[1], :rel => "v:url", :property => "v:title" %>
+						    </li>
+						  <% end %>
+						  <!-- li typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="http://hogash-demo.com/kallyas_wp">Home</a></li -->
+  						<!-- li typeof="v:Breadcrumb"><a rel="v:url" property="v:title" href="http://hogash-demo.com/kallyas_wp/pages-2/">Pages</a></li -->
+  						<!-- li>Historic page</li -->
+						</ul>
+						<%= content_tag(:span, Time.now.strftime("%A %b %-d, %Y"), :id => "current-date") %>						
 					</div>
 					<div class="span6">
 						<div class="header-titles">
-							<h2>OUR COMPANY'S HISTORIC</h2> 
+							<%= content_tag(:h2, @header_title) %> 
 							<!-- h4>A brief timeline of moments that marked our company.</h4 -->
 						</div>
 					</div>

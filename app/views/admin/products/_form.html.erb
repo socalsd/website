@@ -1,0 +1,62 @@
+<%= form_for([:admin, @product], :html => { :multipart => true }) do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :manufacturer_id %><br />
+    <%= f.select :manufacturer_id, options_for_select(Manufacturer.find(:all).map {|m| [m.name, m.id]}, @product.manufacturer_id) %>
+  </div>
+  <div class="field">
+    <%= f.label :category_id %><br />
+    <%= f.select :category_id, options_for_select(Category.find(:all).map {|c| [c.name, c.id]}, @product.category_id) %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :size %><br />
+    <%= f.text_field :size %>
+  </div>
+  <div class="field">
+    <%= f.label :product_page_tag %><br />
+    <%= f.text_field :product_page_tag %><br/>
+    <span>E.g., "New!", etc.</span>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= f.number_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :onsale %><br />
+    <%= f.check_box :onsale %>
+  </div>
+  <div class="field">
+    <%= f.label :old_price %><br />
+    <%= f.number_field :old_price %>
+  </div>
+  <div class="field">
+    <%= f.label :photo %><br />
+    <%= f.file_field :photo %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br />
+    <%= f.text_field :type %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

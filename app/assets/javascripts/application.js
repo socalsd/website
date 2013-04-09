@@ -13,10 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-//= require_tree ../../../vendor/assets/superfish_responsive
+//= require superfish_menu.js
 //= require ../../../vendor/assets/circular_content_carousel/javascripts/jquery.easing.1.3.js
 //= require ../../../vendor/assets/circular_content_carousel/javascripts/jquery.mousewheel.js
 //= require ../../../vendor/assets/circular_content_carousel/javascripts/jquery.contentcarousel.js
+//= require ../../../vendor/assets/pretty_photo/javascripts/jquery.prettyPhoto.js
 
 (function($){
     $(document).ready(function(){
@@ -42,5 +43,30 @@
         });
         
         $('#ca-container').contentcarousel();
+        
+        jQuery("a[data-rel^='prettyPhoto'], .prettyphoto_link").prettyPhoto({theme:'pp_kalypso',social_tools:false, deeplinking:false});
+    	jQuery("a[rel^='prettyPhoto']").prettyPhoto({theme:'pp_kalypso'});
+    	jQuery("a[data-rel^='prettyPhoto[login_panel]']").prettyPhoto({theme:'pp_kalypso', default_width:800, social_tools:false, deeplinking:false});
     });
 })(jQuery);
+
+/*--------------------------------------------------------------------------------------------------
+	Pretty Photo
+--------------------------------------------------------------------------------------------------*/
+
+	function ppOpen(panel, width){
+		jQuery.prettyPhoto.close();
+		setTimeout(function() {
+			jQuery.fn.prettyPhoto({social_tools: false, deeplinking: false, show_title: false, default_width: width, theme:'pp_kalypso'});
+			jQuery.prettyPhoto.open(panel);
+		}, 300);
+
+	} // function to open different panel within the panel
+
+	
+	
+	jQuery(".prettyPhoto_transparent").click(function(e){
+		e.preventDefault();
+		jQuery.fn.prettyPhoto({social_tools: false, deeplinking: false, show_title: false, default_width: 980, theme:'pp_kalypso transparent', opacity: 0.95});
+		jQuery.prettyPhoto.open($(this).attr('href'),'','');
+	});

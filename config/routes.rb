@@ -13,7 +13,7 @@ Socalsd::Application.routes.draw do
   end
   resources :lines
   resources :manufacturers
-  match 'categories/:category_id/products' => "products#category_index"
+  #match 'categories/:category_id/products' => "products#category_index"
   resources :categories do
     resources :products
   end
@@ -34,6 +34,11 @@ Socalsd::Application.routes.draw do
   match 'cart/update' => 'shopping_cart#update'
   match 'cart/finalize' => 'shopping_cart#finalize'
   
+  namespace :admin do
+    resources :categories, :products, :lines, :users, :salons
+  end
+  
+  match 'admin' => "admin::home#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

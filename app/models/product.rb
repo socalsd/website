@@ -7,7 +7,7 @@ class Product < ActiveRecord::Base
   has_attached_file :photo, :styles => { :thumb => "100x100>", :medium => "400x400#" }, :default_url => "/assets/no_image_icon.gif"
   has_many :line_items
   
-  def get_product_tag
-    return product_page_tag || (onsale && "Sale!");
+  def splash_tag
+    return (product_page_tag && !product_page_tag.empty? && product_page_tag) || (onsale && "Sale!");
   end
 end

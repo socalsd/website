@@ -1,0 +1,27 @@
+<head>
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <title>Test</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <!-- script src="http://hogash-demo.com/kallyas_wp/wp-content/themes/kallyas/addons/demo_panel/demo_panel.js?ver=1.4.8" -->
+  <%= csrf_meta_tags %>
+  <script type="text/javascript">                                         
+     // we will add our javascript code here
+     $(document).ready(function() {
+        // do stuff when DOM is ready
+          var $op = $('#options_panel'),
+          $op_btn = $('#options_panel h3');
+             
+          $op_btn.click(function(){
+            if($op.hasClass('opened')) {
+              $op.removeClass('opened').animate({'left':'-'+180+'px', opacity:.7}, 500,'easeOutExpo');
+              $(this).find('span').removeClass('icon-remove').addClass('icon-wrench');
+            } else {
+              $op.addClass('opened').animate({'left':0, opacity:1}, 500,'easeOutBounce');
+              $(this).find('span').removeClass('icon-wrench').addClass('icon-remove');
+            }
+          });
+          
+      });      
+  </script>
+</head>

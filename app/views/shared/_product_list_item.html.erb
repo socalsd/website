@@ -2,8 +2,8 @@
   <div class="product-list-item">
     <span class="hover"></span>
     <div class="zn_badge_container">
-      <% if !product.get_product_tag.nil? %>
-        <span class="zonsale"><%= product.get_product_tag %></span>
+      <% if product.splash_tag %>
+        <span class="zonsale"><%= product.splash_tag %></span>
       <% end %>
     </div>
     <div class="image">

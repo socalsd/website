@@ -10,23 +10,14 @@
                 <!-- end topnav // right aligned -->
                 <ul class="topnav navLeft">
 										<li class="drop">
-						<a id="mycartbtn" href="http://hogash-demo.com/kallyas_wp/cart/" title="View your shopping cart">
-							MY CART						</a>
+						<%= link_to "MY CART", cart_checkout_path, :id => "mycartbtn", :title => "View your shopping cart" %>
 						<div class="pPanel">
 							<div class="inner">
 							  <%= render :partial => "shared/cart_details", :locals => {:cart => current_user && current_user.cart} %>
 							</div>
 						</div>
 					</li>
-									<li class="languages drop"><a href="#"><span class="icon-globe icon-white"></span> LANGUAGES</a>
-						<div class="pPanel">
-							<ul class="inner">
-								<li class="active"><a href="#">English <span class="icon-ok"></span></a></li>
-								<li><a href="#">French</a></li>
-								<li><a href="#">German</a></li>
-							</ul>
-						</div>
-					</li>
+									
 				</ul>
 				<!-- end topnav // left aligned -->
 				<!-- search -->

@@ -60,11 +60,11 @@ module Socalsd
     config.assets.version = '1.0'
     
     #
-    config.assets.paths << Rails.root.join('vendor', 'assets', 'kallyas', 'stylesheets')
-    config.assets.paths << Rails.root.join('vendor', 'assets', 'kallyas', 'javascipts')
+    #config.assets.paths << Rails.root.join('vendor', 'assets', 'kallyas', 'stylesheets')
+    #config.assets.paths << Rails.root.join('vendor', 'assets', 'kallyas', 'javascipts')
     config.assets.paths << Rails.root.join('vendor', 'assets', 'kallyas', 'images')
     config.assets.paths << Rails.root.join('vendor', 'assets', 'superfish_responsive')
     config.assets.paths << Rails.root.join('vendor', 'assets', 'circular_content_carousel', 'images')
-    config.assets.paths << Rails.root.join('vendor', 'assets', 'circular_content_carousel', 'stylesheets')
+    #config.assets.paths << Rails.root.join('vendor', 'assets', 'circular_content_carousel', 'stylesheets')
   end
 end

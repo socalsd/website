@@ -14,10 +14,30 @@
  *= require_self
  *= require_tree .
  *= require_tree ../../../vendor/assets/kallyas/stylesheets
- *= require_tree ../../../vendor/assets/superfish_responsive
- *= require_tree ../../../vendor/assets/circular_content_carousel
+ *= require superfish.css
+ *= require ../../../vendor/assets/circular_content_carousel/stylesheets/circular_content_carousel.css
+ *= require ../../../vendor/assets/circular_content_carousel/stylesheets/circular_content_carousel_alternative.css
+ *= require ../../../vendor/assets/pretty_photo/stylesheets/prettyPhoto.css
  */
 
  td.money {
      text-align: right;
+ }
+ 
+ table.admin th {
+     padding-left: 2.0em;
+     padding-right: 2.0em;
+     padding-top: 0.5em;
+     padding-bottom: 0.5em;
+ }
+ 
+ table.admin td {
+     padding-left: 1.0em;
+     padding-right: 0.0em;
+     padding-top: 0.25em;
+     padding-bottom: 0.25em;
+ }
+ 
+ table.admin a {
+     text-decoration: none;
  }

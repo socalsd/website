@@ -1,0 +1,16 @@
+<% if notice %>
+  <p id="notice"><%= notice %></p>
+<% end %>
+
+<dl class="admin">
+  <dt>Manufacturer</dt>
+  <%= content_tag :dd, @line.manufacturer.name %>
+  <dt>Name</dt>
+  <%= content_tag :dd, @line.name %>
+  <dt>Description</dt>
+  <%= content_tag :dd, @line.description %>
+</dl>
+
+
+<%= link_to 'Edit', edit_admin_line_path(@line) %> |
+<%= link_to 'Back', admin_lines_path %>
