@@ -167,8 +167,9 @@
 						cache.totalItems	= $items.length;
 						
 						// add navigation buttons
-						if( cache.totalItems > 3 )	
-							$el.prepend('<div class="ca-nav"><span class="ca-nav-prev">Previous</span><span class="ca-nav-next">Next</span></div>')	
+						if( cache.totalItems > 3 )
+						    $el.prepend('<div class="ca-nav"><span class="ca-nav-prev"><span class="icon-chevron-left icon-white"></span></span><span class="ca-nav-next"><span class="icon-chevron-right icon-white"></span></span></div>')
+							//$el.prepend('<div class="ca-nav"><span class="ca-nav-prev">Previous</span><span class="ca-nav-next">Next</span></div>')	
 						
 						// control the scroll value
 						if( settings.scroll < 1 )
